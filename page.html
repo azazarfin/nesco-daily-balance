@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="bd">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="r16XClm2LX3WEHaGHVqKnrO6YeTvSJ4Q4ogOR4MF">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://customer.nesco.gov.bd/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://customer.nesco.gov.bd/dist/css/adminlte.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://customer.nesco.gov.bd/plugins/bootstrap_my/my_style.css?20230817">
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.rawgit.com/sh4hids/bangla-web-fonts/solaimanlipi/stylesheet.css" rel="stylesheet"
+          type="text/css"/>
+    
+    <link rel="icon" href="/consImages/logoNesco.png">
+   
+   <!-- For map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <!-- end map -->
+         <link rel="stylesheet" href="https://customer.nesco.gov.bd/plugins/ms-custom/css/postpaid-bill-print.css" type='text/css'>
+    <link rel="stylesheet" href="https://customer.nesco.gov.bd/plugins/ms-custom/css/prepaid-token-print.css" type='text/css'>
+
+    <title>কাস্টমার সার্ভিস পোর্টাল</title>
+</head>
+<body style="font-family: SolaimanLipi, Calibri;">
+    <div class="loader">
+        <div class="loader-in">
+            <div class="innerx one"></div>
+            <div class="innerx two"></div>
+            <div class="innerx three"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <a class="navbar-brand" href="https://customer.nesco.gov.bd">
+                    <img src="/consImages/logoNesco.png" height="35px" alt="নেসকো">
+                    <span style="color: #334464; font-weight: bold; ">&nbsp;কাস্টমার সার্ভিস পোর্টাল&nbsp;</span>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <span class="blink_me text-info text-bold" style="font-size: 25px;">হটলাইন&nbsp;<i
+                        class="fa fa-headphones"></i> ১৬৬০৩</span>
+
+            </div>
+        </div>
+    </div>
+    <div id="app" style="display: block;">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #334464;">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                        <!-- Authentication Links -->
+                        
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/"><i class="fa fa-home"></i> হোম</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false" href="#">অনলাইন সার্ভিস সমূহ</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/post/bill">পোষ্ট-পেইড বিল দেখুন</a>
+                                    <a class="dropdown-item" href="/pre/panel">প্রি-পেইড মিটারের রিচার্জ ও ব্যবহার দেখুন</a>
+                                    <hr>
+                                    <a class="dropdown-item"
+                                    href="/uploads/acts_and_policies/citizen_charter.pdf">নাগরিক সনদ</a>
+                                    <a class="dropdown-item" href="https://connection.nesco.gov.bd/"
+                                    target="_blank">নতুন সংযোগের জন্য আবেদন</a>
+                                    
+                                <!--    <a class="dropdown-item" href="https://ekpay.gov.bd/#/payment/electricity-bill"
+                                    target="_blank">বিল পরিশোধ করুন</a>
+                                    <a class="dropdown-item" href="https://ekpay.gov.bd/#/payment/electricity-bill"
+                                    target="_blank">প্রি-পেইড মিটার রিচার্জ করুন</a>
+								-->
+                                    <a class="dropdown-item" href="/bill-payment-media">বিল পরিশোধ এবং মিটার রিচার্জের মাধ্যম সমূহ</a>
+									<!--
+                                    <a class="dropdown-item"
+                                    href="/uploads/prepaid_meter_user_manual.pdf">প্রি-পেইড মিটার ব্যবহার সহায়িকা</a>
+									-->
+                                    <a class="dropdown-item"
+                                    href="https://bill.nesco.gov.bd/MiscFee">বিবিধ বিল</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/service-offices">সার্ভিস অফিস সমূহ</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false" href="#">অভিযোগ ব্যবস্থাপনা</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item"
+                                    href="https://complain.nesco.gov.bd/nesco-citizen-complaint">অনলাইনে অভিযোগ করুন</a>
+                                <!--    <a class="dropdown-item"
+                                    href="https://complain.mpemr.gov.bd/citizen_complain">মন্ত্রণালয়ের অভিযোগ ব্যবস্থাপনা সিস্টেম</a>
+                                -->
+                                    <a class="dropdown-item"
+                                    href="/office-wise-complain">দপ্তর ভিত্তিক অভিযোগ কেন্দ্র</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/acts-and-policies">আইন/নীতিমালা</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/faqs">জিজ্ঞাসা</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/contact-us">যোগাযোগ</a>
+                            </li>
+                        
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="https://customer.nesco.gov.bd/login">লগইন</a>
+                            </li>
+                                                            <li class="nav-item">
+                                    <a class="nav-link text-white"
+                                    href="https://customer.nesco.gov.bd/register">নিবন্ধন</a>
+                                </li>
+                            
+                                                <div class="sl-nav">
+                            <i class="sl-flag flag-bd"></i>
+                            <ul>
+                                <li class="nav-link text-white">BD
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    <div class="triangle"></div>
+                                    <ul>
+                                        <li>
+                                            <a href="/language/bd">
+                                                <i class="sl-flag flag-bd">
+                                                    <div id="bng"></div>
+                                                </i>
+                                                <span class="active">বাংলা</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/language/en">
+                                                <i class="sl-flag flag-en">
+                                                    <div id="usa"></div>
+                                                </i>
+                                                <span>English</span>
+                                            </a>
+                                        </li>
+
+                                        <!--
+                                        <li><a href="language/uz"><i class="sl-flag flag-uz"><div id="uzbek"></div></i> <span>Uz</span></a></li>
+                                        <li><a href="language/ru"><i class="sl-flag flag-ru"><div id="russian"></div></i> <span>Ru</span></a></li>
+                                        -->
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+                <main class="py-3" style="font-family: SolaimanLipi, Calibri;">
+                
+<div class="container">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card text-center">
+                    <div class="card-body" style='background-color: Lavender;'>
+                        <form class='form-horizontal form-label-left' id="customer-form" method="POST"
+                              action="https://customer.nesco.gov.bd/pre/panel" data-parsley-validate
+                              class="form-horizontal form-label-middle">
+                            <input type="hidden" name="_token" value="r16XClm2LX3WEHaGHVqKnrO6YeTvSJ4Q4ogOR4MF">                            <div class="form-group row justify-content-md-center">
+                                <div class="col-md-4 col-sm-4 col-xs-12"></div>
+                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align: center;">
+                                    <div class="form-group">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+											<label>প্রি-পেইড গ্রাহক নম্বর/মিটার নম্বর টাইপ করুন</label>
+											<input type="text" id="cust_no" name="cust_no"
+                                                   placeholder="একটি গ্রাহক নম্বর টাইপ করুন" style="text-align: center;"
+                                                   value=""
+                                                   class="form-control col-md-12 col-sm-12 col-xs-12" required>
+                                            </input>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12" style="text-align:center;">
+                                                                    </div>
+                            </div>
+
+                            <div class="form-group row justify-content-md-center">
+                                <!--    <div class="col col-lg-2"></div>  -->
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+                                    <div class="form-group">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input class="btn btn-round btn-info" type="submit" name="submit"
+                                                   id="recharge_hist_button" value="রিচার্জ হিস্ট্রি"
+                                                   style="margin-bottom:7px;"></input>
+                                            <input class="btn btn-round btn-info" type="submit" name="submit"
+                                                   id="consumption_hist_button" value="মাসিক ব্যবহার"
+                                                   style="margin-bottom:7px;"></input>
+                                            <input class="btn btn-info" type="submit" name="submit"
+                                                   value="সার্টিফিকেট ডাউনলোড করুন"
+                                                   style="margin-bottom:7px;">
+                                        <!--    <input class="btn btn-info" type="submit" name="submit"
+                                                   value="Locate on map"
+                                                   style="margin-bottom:7px;">   -
+                                                <input class="btn btn-round btn-info" type="button" name="submit" id="unpaid_bills" value="Unpaid Bills" style="margin-bottom:7px;"></input> 
+                                                <input class="btn btn-round btn-info" type="button" name="submit" id="show_pfc_charge_button" value="Notice for PFC Charge" style="margin-bottom:7px;"></input>  -->
+                                            <input class="btn btn-secondary" type="button" name="button"
+                                                   id="reset_button" value="রিসেট" style="margin-bottom:7px;"></input>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--    <div class="col col-lg-2"></div>  -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="clearfix"></div>
+
+        
+                <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+
+    <!-- Footer Section -->
+    <div class="row justify-content-center  navbar fixed-bottom bg-white ">
+    <div class="col-md-10" style="text-align: center;">
+        <hr>
+        Copyright &copy; 2026 <a href="https://nesco.gov.bd">NESCO ICT Operation & Automation</a>.
+        All rights reserved. Hotline <i class="fa fa-headphones"></i> <span style="font-weight:bold">16603</span>
+    </div>
+</div>
+    <!-- /. Footer Section -->
+</div>
+
+                    <!-- Modal -->
+    <div id="tokenModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg " style='width: 480px;'>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title panel_bfont">Vending Token</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="printToken" style="width: 480px;">
+                 <div class="modal-body" id="token-modal-body">
+
+                </div>
+            </div>
+                <div class="modal-footer">
+                    <button id="btnPrint" type="button" class="btn btn-primary">Print</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+        </main>
+    </div>
+</body>
+</html>
+<script src="https://customer.nesco.gov.bd/plugins/jquery/jquery.min.js"></script>
+<script src="https://customer.nesco.gov.bd/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- FontAwsome -->
+<script src="https://customer.nesco.gov.bd/plugins/fontawesome-free/js/all.js"></script>
+<!-- DataTables -->
+<script src="https://customer.nesco.gov.bd/plugins/datatables/jquery.dataTables.js"></script>
+<!-- Select2 -->
+<script src="https://customer.nesco.gov.bd/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="https://customer.nesco.gov.bd/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<script src="https://customer.nesco.gov.bd/plugins/bootstrap_my/myScripts.js?20230817" type="text/javascript"></script>
+<!--script>
+    $(window).on('load', function () {
+        preloader();
+    });
+</script-->
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': 'r16XClm2LX3WEHaGHVqKnrO6YeTvSJ4Q4ogOR4MF',
+                },
+            });
+
+            /***** Action to show in new tab *****/
+            $("form").submit(function (event) {
+                var s_val = $("input[type=submit]:focus").val();
+                if (s_val === 'Download Recharge History' || s_val === 'Download Certificate'||s_val === 'Download Monthly Consumption'||s_val === 'রিচার্জ হিস্ট্রি ডাউনলোড করুন' || s_val === 'সার্টিফিকেট ডাউনলোড করুন'||s_val === 'মাসিক ব্যবহার ডাউনলোড করুন')
+                    $("form").prop('target', '_blank');
+                else
+                    $("form").prop('target', '_self');
+
+                return;
+                //$( "span" ).text( "Not valid!" ).show().fadeOut( 2000 );
+                //event.preventDefault();
+            });
+
+            /******* Action for Reset Button ******/
+            $('#reset_button').on('click', function () {
+                var cust_no = "";
+                $('#cust_no').val(cust_no);
+                $('#con_info_div').hide();
+                $('#arrear_notice_div').hide();
+                $('#status_label').hide();
+                $('#error_label').hide();
+                $('#map_view').hide();
+            });
+            /*** End Action for Reset Button ***/
+
+            
+            ///////////TOKEN//////////////
+            //   $("#consumerRechargeData").on('click', function (e) {
+                $(".consumerRechargeData").click(function (e) {
+
+                    //    alert('mmm'); exit;
+                    e.preventDefault();
+                    var $this = $(this);
+                    $("#tokenModal").modal("toggle", $this);
+
+                    var order_no = $(this).data("order");
+                    var token = $(this).data("token");
+					var seq = $(this).data("seq");
+                    var rent = $(this).data("rent");
+                    var demandCharge = $(this).data("demandcharge");
+                    var tax = $(this).data("tax");
+                    var pfc = $(this).data("pfc");
+                    var subsidyAmount = $(this).data("subsidyamount");
+                    var purchaseAmount = $(this).data("purchaseamount");
+                    var totalAmount = $(this).data("totalamount");
+                    var purchaseEnergy = $(this).data("purchaseenergy");
+                    var saleName = $(this).data("salename");
+                    var purchaseDate = $(this).data("purchasedate");
+                    var debtAmount = $(this).data("debtamount");
+                    var paidAmount = $(this).data("paidamount");
+                    var meterNo = $(this).data("meterno");
+                    var customerNo = $(this).data("customerno");
+                    var customerName = $(this).data("customername");
+                    var tariffSolution = $(this).data("tariff");
+                    var sanctionLoad = $(this).data("sanctionload");
+                    var organization = $(this).data("organization");
+
+                    $.ajax({
+                        type: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                            "cache-control": "no-cache"
+                        },
+                        cache: false,
+                        url: 'https://customer.nesco.gov.bd/pre/showToken',
+                        data: {
+                            Order: order_no,
+                            token: token,
+							seq: seq,
+                            rent: rent,
+                            demandCharge: demandCharge,
+                            tax: tax,
+                            pfc: pfc,
+                            subsidyAmount: subsidyAmount,
+                            purchaseAmount: purchaseAmount,
+                            totalAmount: totalAmount,
+                            purchaseEnergy: purchaseEnergy,
+                            saleName: saleName,
+                            purchaseDate: purchaseDate,
+                            debtAmount: debtAmount,
+                            paidAmount: paidAmount,
+                            meterNo: meterNo,
+                            customerNo: customerNo,
+                            customerName: customerName,
+                            tariffSolution: tariffSolution,
+                            sanctionLoad: sanctionLoad,
+                            Organization: organization
+                        },
+                        success: function (data) {
+                            $('#token-modal-body').html(data);
+                        }
+                    });
+
+                });
+
+                //for printing
+
+                document.getElementById("btnPrint").onclick = function () {
+                printElement(document.getElementById("printToken"));
+                document.title = "Recharge Token";
+                };
+
+                function printElement(elem) {
+                var domClone = elem.cloneNode(true);
+
+                var $printSection = document.getElementById("tokenPrintSection");
+
+                if (!$printSection) {
+                    var $printSection = document.createElement("div");
+                    $printSection.id = "tokenPrintSection";
+                    document.body.appendChild($printSection);
+                }
+                $printSection.innerHTML = "";
+                $printSection.appendChild(domClone);
+                window.print();
+                }
+
+
+        });
+
+    </script>
+
+<script type="text/javascript">
+    $('.btn-refresh-captcha').click(function () {
+        $(".captcha span").html("Regenerating captcha ...");
+        $.ajax({
+            type: 'GET',
+            //url: 'reload-captcha',
+            url: 'https://customer.nesco.gov.bd/reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+
+</script>
+

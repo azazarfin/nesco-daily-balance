@@ -1,0 +1,32 @@
+name: Daily NESCO Scraper
+
+on:
+  schedule:
+    # Runs at 02:00 UTC every day (which is 8:00 AM Bangladesh Time)
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allows manual triggering from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Scraper Script
+        run: node scripts/scrape-standalone.js
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          # Puppeteer needs to know it's running in CI/Docker environment usually, 
+          # but modern Puppeteer + Ubuntu setup in Actions often works out of the box.
+          # If issues arise, we might need to add specific args in the index.js puppeteer.launch()
