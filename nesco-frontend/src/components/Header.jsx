@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Zap, Menu as MenuIcon, X, RefreshCw, Settings as SettingsIcon, LayoutDashboard } from 'lucide-react';
+import { Menu as MenuIcon, X, RefreshCw, Settings as SettingsIcon, LayoutDashboard } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { clsx } from 'clsx';
 
@@ -18,7 +18,7 @@ const Header = ({ onRefresh, loading }) => {
         <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-900/80 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60">
             <div className="container flex h-14 max-w-screen-xl items-center justify-between px-4">
                 <Link to="/" className="flex items-center space-x-2">
-                    <Zap className="h-6 w-6 text-emerald-500" />
+                    <img src="/logo.svg" alt="NESCO Tracker Logo" className="h-8 w-8" />
                     <span className="text-xl font-bold tracking-tight text-white">
                         NESCO Tracker
                     </span>
