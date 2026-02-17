@@ -3,17 +3,15 @@ import { Zap, Menu as MenuIcon, X, RefreshCw, Settings as SettingsIcon, LayoutDa
 import { Link, useLocation } from 'react-router-dom';
 import { clsx } from 'clsx';
 
-const Header = ({ onRefresh, isScraping }) => {
+const Header = ({ onRefresh, loading }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     const handleRefreshClick = () => {
-        if (window.confirm("Are you sure you want to refresh data? This will trigger a live scrape.")) {
-            onRefresh();
-            setIsMenuOpen(false);
-        }
+        onRefresh();
+        setIsMenuOpen(false);
     };
 
     return (
@@ -61,11 +59,11 @@ const Header = ({ onRefresh, isScraping }) => {
                         </Link>
                         <button
                             onClick={handleRefreshClick}
-                            disabled={isScraping}
+                            disabled={loading}
                             className="flex items-center w-full px-4 py-2 text-sm text-slate-300 hover:bg-slate-700 hover:text-white disabled:opacity-50 text-left"
                         >
-                            <RefreshCw className={clsx("h-4 w-4 mr-2", isScraping && "animate-spin")} />
-                            {isScraping ? 'Syncing...' : 'Refresh Data'}
+                            <RefreshCw className={clsx("h-4 w-4 mr-2", loading && "animate-spin")} />
+                            {loading ? 'Refreshing...' : 'Refresh Data'}
                         </button>
                     </div>
                 )}

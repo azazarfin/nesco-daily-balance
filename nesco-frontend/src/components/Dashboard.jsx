@@ -3,7 +3,7 @@ import HeroCard from './HeroCard';
 import UsageChart from './UsageChart';
 import HistoryList from './HistoryList';
 
-const Dashboard = ({ data, loading, error, onRetry, isScraping, threshold }) => {
+const Dashboard = ({ data, loading, error, onRetry, threshold }) => {
     // Derived state
     const currentBalance = data.length > 0 ? data[0].balance : null;
     const lastUpdated = data.length > 0 ? data[0].scrapedAt : null;

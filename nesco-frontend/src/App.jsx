@@ -20,10 +20,9 @@ function App() {
   // Data State
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [scraping, setScraping] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   const fetchData = async () => {
     setLoading(true);
@@ -41,28 +40,13 @@ function App() {
     }
   };
 
-  const handleScrape = async () => {
-    setScraping(true);
-    try {
-      const response = await axios.get(`${API_URL}/api/scrape-now`);
-      if (response.data.success) {
-        fetchData();
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Scrape request failed.');
-    } finally {
-      setScraping(false);
-    }
-  };
-
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
     <div className="min-h-screen bg-slate-950 font-sans text-slate-100">
-      <Header onRefresh={handleScrape} isScraping={scraping} />
+      <Header onRefresh={fetchData} loading={loading} />
 
       <main className="container mx-auto max-w-screen-xl px-4">
         <Routes>
@@ -74,7 +58,6 @@ function App() {
                 loading={loading}
                 error={error}
                 onRetry={fetchData}
-                isScraping={scraping}
                 threshold={threshold}
               />
             }

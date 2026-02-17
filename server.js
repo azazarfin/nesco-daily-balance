@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const { runScraper, BalanceRecord } = require('./index');
+const BalanceRecord = require('./models/BalanceRecord');
 
 const app = express();
 app.use(cors()); // Enable CORS for all routes
@@ -37,57 +37,7 @@ app.get('/api/balance', async (req, res) => {
     }
 });
 
-// Endpoint: Trigger scraper & check low balance
-app.get('/api/scrape-now', async (req, res) => {
-    try {
-        console.log('Manual scrape triggered via API...');
-        const record = await runScraper(); // This will save to DB automatically
-
-        if (record) {
-            let message = 'Scrape successful.';
-            let notificationSent = false;
-
-            // Check Low Balance
-            if (record.balance < 200) {
-                const alertMsg = `LOW BALANCE ALERT: Current balance is ${record.balance} Tk.`;
-                console.log(alertMsg);
-
-                // Send Email if credentials exist
-                if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-                    try {
-                        await transporter.sendMail({
-                            from: process.env.EMAIL_USER,
-                            to: process.env.EMAIL_USER, // Sending to self
-                            subject: 'NESCO Low Balance Alert',
-                            text: alertMsg
-                        });
-                        console.log('Email notification sent.');
-                        notificationSent = true;
-                    } catch (emailErr) {
-                        console.error('Failed to send email:', emailErr);
-                    }
-                } else {
-                    console.log('Email credentials not configured. Skipping email.');
-                }
-                message += ` Low balance detected! (${record.balance} Tk)`;
-            }
-
-            res.json({
-                success: true,
-                message: message,
-                data: record,
-                lowBalance: record.balance < 200,
-                notificationSent: notificationSent
-            });
-        } else {
-            res.status(500).json({ success: false, error: 'Scraper failed to retrieve data.' });
-        }
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, error: 'Server error during scrape.' });
-    }
-});
+// Endpoint: Manual scrape removed for serverless deployment (handled by GitHub Actions)
 
 
 
