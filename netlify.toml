@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && cd nesco-frontend && npm install && npm run build"
+  command = "npm install --omit=dev && cd nesco-frontend && npm install && npm run build"
   publish = "nesco-frontend/dist"
   functions = "functions"
 
