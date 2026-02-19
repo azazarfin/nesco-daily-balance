@@ -47,6 +47,10 @@ router.get('/balance', async (req, res) => {
     }
 });
 
+router.get('/', (req, res) => {
+    res.json({ message: "API is working!", path: req.path });
+});
+
 // Use the router for the Netlify function path
 app.use('/.netlify/functions/api', router);
 
