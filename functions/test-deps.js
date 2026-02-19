@@ -10,7 +10,7 @@ try {
                 message: "Dependencies loaded successfully!",
                 versions: {
                     mongoose: mongoose.version,
-                    express: require('package.json').dependencies.express // This might fail if package.json isn't reachable, but require('express') worked
+                    express: require('express/package.json').version // Safer way to get express version
                 }
             })
         };

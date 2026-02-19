@@ -4,7 +4,7 @@ echo "Starting Netlify Build..."
 # 1. Frontend Build
 echo "Building Frontend..."
 cd nesco-frontend
-npm install
+npm install # Installs everything including vite
 npm run build
 cd ..
 
