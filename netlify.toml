@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --omit=dev && cd nesco-frontend && npm install && npm run build"
+  command = "chmod +x scripts/netlify-build.sh && ./scripts/netlify-build.sh"
   publish = "nesco-frontend/dist"
   functions = "functions"
 
