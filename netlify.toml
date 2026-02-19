@@ -2,6 +2,7 @@
   command = "chmod +x scripts/netlify-build.sh && ./scripts/netlify-build.sh"
   publish = "nesco-frontend/dist"
   functions = "functions"
+  environment = { NODE_ENV = "production" }
 
 [[redirects]]
   from = "/api/*"

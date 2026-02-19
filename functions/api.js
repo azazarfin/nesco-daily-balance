@@ -2,7 +2,7 @@ const serverless = require('serverless-http');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const BalanceRecord = require('../models/BalanceRecord');
+const BalanceRecord = require('./models/BalanceRecord');
 require('dotenv').config();
 
 const app = express();
