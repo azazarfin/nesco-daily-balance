@@ -1,0 +1,13 @@
+{
+    "name": "nesco-backend-functions",
+    "version": "1.0.0",
+    "description": "Serverless functions for Nesco Tracker",
+    "main": "api.js",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "mongoose": "^8.4.1",
+        "serverless-http": "^3.2.0"
+    }
+}
