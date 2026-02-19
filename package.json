@@ -16,7 +16,8 @@
     "express": "^5.2.1",
     "mongoose": "^9.2.1",
     "node-cron": "^4.2.1",
-    "nodemailer": "^8.0.1"
+    "nodemailer": "^8.0.1",
+    "serverless-http": "^4.0.0"
   },
   "devDependencies": {
     "puppeteer": "^24.37.3"
