@@ -22,13 +22,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
-
   const fetchData = async () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get(`${API_URL}/api/balance`);
+      const response = await axios.get('/api/balance');
       if (response.data.success) {
         setData(response.data.data);
       }
