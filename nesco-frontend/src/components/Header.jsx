@@ -24,17 +24,35 @@ const Header = ({ onRefresh, loading }) => {
                     </span>
                 </Link>
 
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex items-center space-x-6">
+                    <Link to="/" className={clsx("text-sm font-medium transition-colors", location.pathname === "/" ? "text-emerald-500" : "text-slate-300 hover:text-white")}>
+                        Dashboard
+                    </Link>
+                    <Link to="/settings" className={clsx("text-sm font-medium transition-colors", location.pathname === "/settings" ? "text-emerald-500" : "text-slate-300 hover:text-white")}>
+                        Settings
+                    </Link>
+                    <button
+                        onClick={handleRefreshClick}
+                        disabled={loading}
+                        className="flex items-center text-sm font-medium text-emerald-500 hover:text-emerald-400 disabled:opacity-50 transition-colors"
+                    >
+                        <RefreshCw className={clsx("h-4 w-4 mr-2", loading && "animate-spin")} />
+                        {loading ? 'Refreshing...' : 'Refresh'}
+                    </button>
+                </nav>
+
                 {/* Mobile Menu Button */}
                 <button
                     onClick={toggleMenu}
-                    className="p-2 text-slate-400 hover:text-white focus:outline-none"
+                    className="p-2 text-slate-400 hover:text-white focus:outline-none md:hidden"
                 >
                     {isMenuOpen ? <X className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
                 </button>
 
-                {/* Dropdown Menu */}
+                {/* Mobile Dropdown Menu */}
                 {isMenuOpen && (
-                    <div className="absolute top-14 right-4 w-48 rounded-md border border-slate-700 bg-slate-800 shadow-lg py-1 ring-1 ring-black ring-opacity-5">
+                    <div className="absolute top-14 right-4 w-48 rounded-md border border-slate-700 bg-slate-800 shadow-lg py-1 ring-1 ring-black ring-opacity-5 md:hidden">
                         <Link
                             to="/"
                             className={clsx(

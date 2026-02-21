@@ -9,7 +9,7 @@ const HistoryList = ({ data }) => {
                     Recent Records
                 </h3>
             </div>
-            <div className="max-h-[400px] overflow-y-auto">
+            <div className="max-h-[400px] overflow-y-auto overflow-x-auto w-full">
                 <table className="min-w-full divide-y divide-slate-800">
                     <thead className="bg-slate-950 sticky top-0">
                         <tr>
