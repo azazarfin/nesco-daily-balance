@@ -1,10 +1,12 @@
 #!/bin/bash
+set -e # Exit immediately if a command fails
+
 echo "Starting Netlify Build..."
 
 # 1. Frontend Build
 echo "Building Frontend..."
 cd nesco-frontend
-npm install # Installs everything including vite
+npm install --include=dev # Explicitly install devDependencies
 npm run build
 cd ..
 
