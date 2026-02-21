@@ -27,7 +27,7 @@ const Dashboard = ({ data, loading, error, onRetry, threshold }) => {
         <div className="py-8">
             <div className="grid gap-6 md:grid-cols-3">
                 {/* Left Column: Hero Status */}
-                <div className="md:col-span-1">
+                <div className="md:col-span-1 min-w-0">
                     <HeroCard
                         currentBalance={currentBalance}
                         lastUpdated={lastUpdated}
@@ -36,7 +36,7 @@ const Dashboard = ({ data, loading, error, onRetry, threshold }) => {
                 </div>
 
                 {/* Right Column: Chart */}
-                <div className="md:col-span-2">
+                <div className="md:col-span-2 min-w-0">
                     {loading && data.length === 0 ? (
                         <div className="h-[300px] w-full animate-pulse rounded-xl bg-slate-800"></div>
                     ) : (
@@ -45,7 +45,7 @@ const Dashboard = ({ data, loading, error, onRetry, threshold }) => {
                 </div>
 
                 {/* Bottom Row: History Table */}
-                <div className="md:col-span-3">
+                <div className="md:col-span-3 min-w-0">
                     <HistoryList data={data} />
                 </div>
             </div>

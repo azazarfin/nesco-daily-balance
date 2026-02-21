@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 font-sans text-slate-100">
+    <div className="min-h-screen bg-slate-950 font-sans text-slate-100 overflow-x-hidden flex flex-col">
       <Header onRefresh={fetchData} loading={loading} />
 
       <main className="container mx-auto max-w-screen-xl px-4">
