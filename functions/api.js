@@ -51,7 +51,8 @@ router.get('/', (req, res) => {
     res.json({ message: "API is working!", path: req.path });
 });
 
-// Use the router for the Netlify function path
+// Use the router for both direct access and rewritten Netlify paths
+app.use('/api', router);
 app.use('/.netlify/functions/api', router);
 
 // Export the handler
